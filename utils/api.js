@@ -2,15 +2,15 @@ import uuidv4 from 'uuid/v4';
 import recipeList from './mock/recipe-list';
 import sleep from './sleep';
 
-const mapRecipe = async recipe => {
-  const { name, image, ingredients } = recipe;
-  // await sleep(500);
-  ingredients = ingredients.map(mapIngredient);
+const mapRecipe = recipe => {
+  const { name, image, ingredients, instructions } = recipe;
 	return {
 	  id: uuidv4(),
+    instructions: instructions.map(mapInstruction),
 	  name,
     image,
-	  ingredients,
+	  ingredients: ingredients.map(mapIngredient),
+    
 	};
 };
 
@@ -20,6 +20,14 @@ const mapIngredient = ingredients => {
 		ingredientId : uuidv4(),
 		ingredient,
 	}
+};
+
+const mapInstruction = instructions => {
+  const {instruction} = instructions;
+  return {
+    instructionId : uuidv4(),
+    instruction,
+  }
 };
 
 export const fetchRecipes = async () => {
