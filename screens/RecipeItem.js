@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {FlatList, StyleSheet, View, SafeAreaView, Image, Text} from 'react-native';
 
 import Ingredient from '../components/Ingredient';
+import InstructionStep from '../components/InstructionStep';
  
 export default class RecipeItem extends React.Component {
 	static navigationOptions = ({navigation: {state: {params}}}) => {
@@ -13,25 +14,46 @@ export default class RecipeItem extends React.Component {
 	}
 	renderIngredient = ({item}) => {
 		return(
-			<Ingredient item={item} />
+			<Ingredient item={item.ingredient} />
+		);
+	}
+	renderInstructionStep = ({item}) => {
+		return(
+			<InstructionStep item={item.instruction} />
 		);
 	}
 	render(){
 		const {navigation: {state: {params}}} = this.props;
 		const {recipe} = params;
 		const {name, image, instructions, ingredients} = recipe;
+// <<<<<<< HEAD
 		// const {ingredientId} = ingredients;
 		// console.log(ingredientId);
 		// const ingredientKeyExtractor= ({ingredientId}) = ingredientId;
+// =======
+		const {ingredientId} = ingredients;
+		const ingredientKeyExtractor= ({ingredientId}) => ingredientId;
+		const {instructionId} = instructions;
+		const instructionKeyExtractor= ({instructionId}) => instructionId;
+// >>>>>>> test
 
 		return(
-			<View style={styles.container}>
+			<SafeAreaView style={styles.container}>
 				<View style={styles.header}>
 					<Image source={image} style={styles.image}/>
 					<Text style={styles.title}>{name}</Text>
 				</View>
-				
-			</View>
+				<FlatList
+					data={ingredients}
+					keyExtractor={ingredientKeyExtractor}
+					renderItem={this.renderIngredient}
+				/>
+				<FlatList
+					data={instructions}
+					keyExtractor={instructionKeyExtractor}
+					renderItem={this.renderInstructionStep}
+				/>
+			</SafeAreaView>
 		);
 	}
 }
