@@ -20,8 +20,8 @@ export default class RecipeItem extends React.Component {
 		const {navigation: {state: {params}}} = this.props;
 		const {recipe} = params;
 		const {name, image, instructions, ingredients} = recipe;
-		const {ingredientId} = ingredients;
-		console.log(ingredientId);
+		// const {ingredientId} = ingredients;
+		// console.log(ingredientId);
 		// const ingredientKeyExtractor= ({ingredientId}) = ingredientId;
 
 		return(

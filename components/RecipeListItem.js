@@ -18,7 +18,7 @@ export default function RecipeListItem({
   return (
     <TouchableHighlight
       style={styles.container}
-      underlayColor="7f7a7a"
+      underlayColor="#7f7a7a"
       onPress={onPress}
     >
       <View style={styles.recipeInfo}>
