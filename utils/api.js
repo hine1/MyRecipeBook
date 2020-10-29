@@ -9,9 +9,8 @@ const mapRecipe = recipe => {
 	  id: uuidv4(),
     instructions: instructions.map(mapInstruction),
 	  name,
-    image,
+   	image,
 	  ingredients: ingredients.map(mapIngredient),
-
 	};
 };
 

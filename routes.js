@@ -4,7 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Recipes from './screens/Recipes';
 import RecipeItem from './screens/RecipeItem';
-
+import AddRecipe from './screens/AddRecipe';
 const recipeScreen = createStackNavigator(
 	{
 		Recipes:{
@@ -12,6 +12,9 @@ const recipeScreen = createStackNavigator(
 		},
 		RecipeItem: {
 			screen: RecipeItem
+		},
+		AddRecipe: {
+			screen: AddRecipe
 		},
 	}
 );

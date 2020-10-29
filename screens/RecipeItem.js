@@ -26,16 +26,11 @@ export default class RecipeItem extends React.Component {
 		const {navigation: {state: {params}}} = this.props;
 		const {recipe} = params;
 		const {name, image, instructions, ingredients} = recipe;
-// <<<<<<< HEAD
-		// const {ingredientId} = ingredients;
-		// console.log(ingredientId);
-		// const ingredientKeyExtractor= ({ingredientId}) = ingredientId;
-// =======
 		const {ingredientId} = ingredients;
 		const ingredientKeyExtractor= ({ingredientId}) => ingredientId;
 		const {instructionId} = instructions;
 		const instructionKeyExtractor= ({instructionId}) => instructionId;
-// >>>>>>> test
+
 
 		return(
 			<SafeAreaView style={styles.container}>
@@ -86,9 +81,3 @@ const styles = StyleSheet.create({
   ingredients:{},
   instructions:{},
 });
-// <FlatList
-// 					data={ingredients}
-// 					style={styles.ingredients}
-// 					renderItem={this.renderIngredient}
-// 					keyExtractor={ingredientKeyExtractor}
-// 				/>

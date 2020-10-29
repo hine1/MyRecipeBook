@@ -37,11 +37,12 @@ export default class Recipes extends React.Component{
 		);
 	}
   render(){
+    const {navigation: {navigate}} = this.props;
   	const {recipes} = this.state;
     return(
       <View style={styles.container}>
         <View style={styles.buttonList}>
-          <RecipeButton title="+" small color="#965757" styles={styles.button}/>
+          <RecipeButton title="+" small color="#965757" styles={styles.button} onPress={()=>navigate('AddRecipe')}/>
         </View>
         <FlatList
           style={styles.recipeList}
@@ -59,7 +60,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   recipeList: {
     flex:1,
